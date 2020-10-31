@@ -4,11 +4,12 @@
   "description": "triva game made in any lanuage featuring: Arrays and loops, Data manipulation, and Parsing JSON.",
   "main": "src/index.js",
   "scripts": {
+    "setup": "npm install",
     "start": "node ."
   },
-  "engineStrict" : true,
-  "engines" : {
-    "node" : "12.18.3" 
+  "engineStrict": true,
+  "engines": {
+    "node": "12.18.3"
   },
   "repository": {
     "type": "git",
