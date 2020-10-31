@@ -258,10 +258,12 @@ class TriviaGame {
 				this.begin();
 			}
 			else if (getPromptResponse(result).includes("e") || getPromptResponse(result).includes("E")){
+				console.clear();
 				console.log("Goodbye".blue);
 				exit();
 			}
 			else if (getPromptResponse(result).includes("i" || getPromptResponse(result).includes("I"))){
+				console.clear();
 				this.intro();
 			}
 			
