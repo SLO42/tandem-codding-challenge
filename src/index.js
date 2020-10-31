@@ -5,7 +5,7 @@ const colors = require('colors');
 
 
 // devTimer is the timer used between instructions to quicken development 
-const devTimer = 50
+const devTimer = 500
 
 //modify default prompt props
 prompt.message = ("");
@@ -19,7 +19,8 @@ const gotintro = [
 			type: "string",
 			description:"yes to move on, no to repeat",
 			validator: /^[nNyY]$/,
-			warning: 'Y or n only, Yes to move on, No to stay and reread'.yellow
+			warning: 'Y or n only, Yes to move on, No to stay and reread'.yellow,
+			default: "y"
 	},
 ];
 const menu = [
@@ -28,9 +29,19 @@ const menu = [
 			type: "string",
 			description:"menu chouces",
 			validator: /^[eEqQsSiI]$/,
-			warning: 'E/e, Q/q, S/s, or I/i avaiable only.'.yellow
+			warning: 'E/e, Q/q, S/s, or I/i avaiable only.'.yellow,
+			default: "i"
 	},
 ];
+const endgame = [
+	{
+		name: "Play again? y/n ".blue,
+		validator: /^[nNyY]$/,
+		warning: 'Y or n only, Yes to play again, no to exit'.yellow,
+		default: "y"
+	},
+]
+
 
 //console loged info
 const welcome = "\tWelcome to Trivia\n".blue + 
@@ -111,15 +122,10 @@ class TriviaGame {
 		else {
 			console.log(this.score);
 		}
-		prompt.get({
-			name: "Play again? y/n ".blue,
-			validator: /^[nNyY]$/,
-			warning: 'Y or n only, Yes to play again, no to exit'.yellow
-		}, (error, result) => {
+		prompt.get(endgame, (error, result) => {
 			if (error) { EXIT_ON_ERR(error)}
 			const key = getPromptResponse(result);
 			if (key.includes('y') || key.includes('Y')){
-				this.score = 0;
 				this.menu();
 			}
 			else {
@@ -146,11 +152,12 @@ class TriviaGame {
 				choice_string += `| ${choices[i]}/${choices[i + len]}  `.blue + choice + " |\t".blue 
 			})
 			console.log(choice_string);
-			var regs = new RegExp(`^[${choices}]$`);
+			var regs = new RegExp(`^[${choices}]{1}$`);
 			const question_properties = {
 				name: "answer",
 				validator: regs,
-				warning: `${choices} avaiable only.`.yellow
+				warning: `${choices} avaiable only.`.yellow,
+				default: 'a'
 			}
 			prompt.get(question_properties, (err, res) => {
 				if (err) { return EXIT_ON_ERR(err)}
@@ -226,6 +233,7 @@ class TriviaGame {
 
 	menu = () => {
 		console.clear();
+		this.score = 0;
 		console.log("\tMain Menu".brightWhite);
 		console.log("\n'q/Q' to view questions".brightWhite);
 		console.log("'i/I' to view intro".brightWhite);
@@ -240,6 +248,7 @@ class TriviaGame {
 				this.begin();
 			}
 			else if (getPromptResponse(result).includes("e") || getPromptResponse(result).includes("E")){
+				console.log("Goodbye".blue);
 				exit();
 			}
 			else if (getPromptResponse(result).includes("i" || getPromptResponse(result).includes("I"))){
@@ -254,6 +263,3 @@ class TriviaGame {
 prompt.start();
 console.clear();
 new TriviaGame();
-
-
-
