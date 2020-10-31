@@ -116,7 +116,7 @@ class TriviaGame {
 
 	showResults = () => {
 		if (this.score == 100){
-			console.log(`Your score is: `+`${this.score}`.bgGreen.underline);
+			console.log(`Your score is: `+`${this.score}`.green.underline);
 			console.log("You really dont look that smart, who knew?")
 		}
 		else if (this.score > 70)
