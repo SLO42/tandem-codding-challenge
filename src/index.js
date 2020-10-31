@@ -50,12 +50,12 @@ const welcome = "\tWelcome to Trivia\n".blue +
 const instructions = [
 	welcome,
 	"A round of trivia has " +  "10".red.underline +  " questions.",
-	"All questions are multiple-choice questions",
-	"To view questions, go to the 'Main Menu' and use " + 'q/Q'.blue +  " to view",
-	"Default selection is 'a/A' if no answer given",
+	"All questions have multiple-choice answers.",
+	"To view the list of questions, go to the 'Main Menu' and use " + 'q/Q'.blue +  " to view.",
+	"Default selection is 'a/A' if no answer is given.",
 	"After each question you submit, you will be shown the correct answer.",
-	"At the end of the round your score will be given",
-	"Good luck and have fun".rainbow,
+	"At the end of the round your score will be given.",
+	"Good luck and have fun.",
 	"Did you get all that? " + "Y/y".green + " : " + "N/n".red
 ];
 
@@ -115,12 +115,22 @@ class TriviaGame {
 	}
 
 	showResults = () => {
-		if (this.score > 70)
+		if (this.score == 100){
+			console.log(`Your score is: `+`${this.score}`.bgGreen.underline);
+			console.log("You really dont look that smart, who knew?")
+		}
+		else if (this.score > 70)
 		{
-			console.log(`${this.score}`.green)
+			console.log(`Your score is: `+`${this.score}`.green);
+			console.log("Functioning member of society.")
+		}
+		else if (this.score > 40){
+			console.log(`Your score is: `+`${this.score}`.yellow);
+			console.log("D's get degrees.");
 		}
 		else {
-			console.log(this.score);
+			console.log(`Your score is: `+`${this.score}`.red);
+			console.log("Your mother is still proud of you <3.");
 		}
 		prompt.get(endgame, (error, result) => {
 			if (error) { EXIT_ON_ERR(error)}
@@ -168,8 +178,8 @@ class TriviaGame {
 						this.score += 10;
 					}
 					else{
-						console.log(answer_choices[choices.indexOf(response.toLowerCase())].red)
-						console.log(answer_sheet[index].correct)
+						console.log("Your response " + answer_choices[choices.indexOf(response.toLowerCase())].red + " is incorrect.")
+						console.log("The correct response: " + answer_sheet[index].correct.green)
 					}
 					this.nextQuestion(index + 1);
 				}
@@ -235,9 +245,9 @@ class TriviaGame {
 		console.clear();
 		this.score = 0;
 		console.log("\tMain Menu".brightWhite);
-		console.log("\n'q/Q' to view questions".brightWhite);
-		console.log("'i/I' to view intro".brightWhite);
 		console.log("'s/S' to start".brightWhite);
+		console.log("'i/I' to view intro".brightWhite);
+		console.log("'q/Q' to view questions".brightWhite);
 		console.log("'e/E' to exit".brightWhite);
 		prompt.get(menu, (err, result) => {
 			if (err) {  EXIT_ON_ERR(err)}
