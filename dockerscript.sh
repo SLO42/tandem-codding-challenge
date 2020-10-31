@@ -1,0 +1,1 @@
+docker pull saolivei/tandem-coding-challenge:1.0 && docker run -it saolivei/tandem-coding-challenge:1.0
