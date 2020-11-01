@@ -1,6 +1,6 @@
 {
   "name": "tandem-coding-challenge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "triva game made in any lanuage featuring: Arrays and loops, Data manipulation, and Parsing JSON.",
   "main": "src/index.js",
   "scripts": {

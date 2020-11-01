@@ -197,7 +197,7 @@ class TriviaGame {
 	}
 
 	intro = () =>  {
-		const timer = devTimer ? devTimer : 3000 ;
+		const timer = devTimer ? devTimer : 500 ;
 		console.clear();
 		instructions.map((instruction, index) => {
 			setTimeout(() => {console.log(instruction)}, index * timer );
