@@ -1,6 +1,11 @@
 # tandem-coding-challenge using node 12.18.3 
  node > 14 seems to give generic error for padLevels.
  
+ node < 12 seems to get upset at functions like:
+ ```javascript
+  getResults = () => {...};
+ ```
+ 
 Trivia night at the local apprenticeship application (Tandem)
 
 CLI game using json array for questions
@@ -34,4 +39,7 @@ start the trivia game ( node . )
 
 # For a docker environment 
 
-Run dockerscript.sh
+Run 
+```bash
+./dockerscript.sh
+```
