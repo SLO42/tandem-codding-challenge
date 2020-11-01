@@ -7,7 +7,6 @@
     "setup": "npm install",
     "start": "node ."
   },
-  "engineStrict": true,
   "engines": {
     "node": "12.18.3"
   },
