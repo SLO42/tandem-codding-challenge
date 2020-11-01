@@ -90,6 +90,7 @@ const EXIT_ON_ERR = (err) => {
 /**
  * Given a prompt.get(..., (err, result) ).
  * @param {JSON/Object} result any given result specifier to return the key value.
+ * result = {key : value}
  */
 
 const getPromptResponse = (result) => {
@@ -119,12 +120,12 @@ class TriviaGame {
 			console.log(`Your score is: `+`${this.score}`.green.underline);
 			console.log("You really dont look that smart, who knew?")
 		}
-		else if (this.score > 70)
+		else if (this.score >= 70)
 		{
 			console.log(`Your score is: `+`${this.score}`.green);
 			console.log("Functioning member of society.")
 		}
-		else if (this.score > 40){
+		else if (this.score >= 40){
 			console.log(`Your score is: `+`${this.score}`.yellow);
 			console.log("D's get degrees.");
 		}
@@ -150,7 +151,7 @@ class TriviaGame {
 		if (index >= 10){
 			this.showResults();
 		}
-		else{
+		else {
 			let answer_choices = shuffle(answer_sheet[index].incorrect.concat(answer_sheet[index].correct))
 			const len = answer_choices.length;
 			const alpha = "abcdefghijklmnopqrstuvwxyz";
@@ -184,12 +185,8 @@ class TriviaGame {
 					this.nextQuestion(index + 1);
 				}
 			})
-			
-			
 		}
 	}
-
-
 
 	begin = () => {
 		let		index = 0;
@@ -198,8 +195,6 @@ class TriviaGame {
 		shuffle(answer_sheet); 
 		console.log("Shuffling the questions...".green);
 		this.nextQuestion(index);
-		// give example question 
-		// go over answering and such, allow for user to look at questions.
 	}
 
 	intro = () =>  {
@@ -220,7 +215,7 @@ class TriviaGame {
 				if (key.includes("n") || key.includes("N")){
 					this.intro();
 				}
-				else { this.menu(); } // move to the next step
+				else { this.menu(); }
 			} ); }, devTimer * instructions.length);
 	
 	}
