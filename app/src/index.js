@@ -52,7 +52,6 @@ const instructions = [
 	"A round of trivia has " +  "10".red.underline +  " questions.",
 	"All questions have multiple-choice answers.",
 	"To view the list of questions, go to the 'Main Menu' and use " + 'q/Q'.blue +  " to view.",
-	"Default selection is 'a/A' if no answer is given.",
 	"After each question you submit, you will be shown the correct answer.",
 	"At the end of the round your score will be given.",
 	"Good luck and have fun.",
@@ -168,7 +167,7 @@ class TriviaGame {
 				name: "answer",
 				validator: regs,
 				warning: `${choices} avaiable only.`.yellow,
-				default: 'a'
+				default: ' '
 			}
 			prompt.get(question_properties, (err, res) => {
 				if (err) { return EXIT_ON_ERR(err)}
