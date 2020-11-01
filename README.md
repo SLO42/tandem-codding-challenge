@@ -17,7 +17,7 @@ If you have docker, you can run the dockerscript.sh to launch the application
 If you dont have node version 12.18.3 you can switch to that version using nvm (node version manager)
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 source ~/.bashrc
 ```
 After that you should be able to see the nvm version with
