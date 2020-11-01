@@ -38,8 +38,12 @@ npm start
 start the trivia game ( node . )
 
 # For a docker environment 
-
-Run 
+If you are not root, Docker might say "Permission denied", and in doing so you'll need to run the docker commands as sudo.
+```bash
+sudo docker build -t tandem-coding-challenge .
+sudo docker run -it --rm tandem-coding-challenge
+```
+Other wise you can just run:
 ```bash
 ./dockerscript.sh
 ```
