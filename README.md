@@ -22,9 +22,15 @@ Then you can install the node version with:
 ```nvm install 12.18.3```
 And in doing so it should switch the current version of node to 12.18.3
 
-```bash npm run setup``` | to install node packages ( npm i )
+```bash 
+npm run setup
+```
+to install node packages ( npm i )
 
-```bash npm start```  | start the trivia game ( node . )
+```bash
+npm start
+``` 
+start the trivia game ( node . )
 
 # For a docker environment 
 
