@@ -16,28 +16,34 @@ If you have docker, you can run the dockerscript.sh to launch the application
 
 if you dont have node version 12.18.3 you can switch to that version using nvm (node version manager)
 
-
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 source ~/.bashrc
 ```
-after that you should be able to see the nvm version with
+After that you should be able to see the nvm version with
 ```nvm --version```
 Then you can install the node version with:
 ```nvm install 12.18.3```
 And in doing so it should switch the current version of node to 12.18.3
 
-```bash 
-npm run setup
+Next move into the app folder where the project is located.
+```bash
+ cd app/
 ```
-to install node packages ( npm i )
 
+Then run the setup and start the game
+
+to install node packages ( npm i )
+```bash 
+ npm run setup
+```
+
+start the trivia game ( node . )
 ```bash
 npm start
 ``` 
-start the trivia game ( node . )
 
-# For a docker environment 
+# For a docker environment :
 If you are not root, Docker might say "Permission denied", and in doing so you'll need to run the docker commands as sudo.
 ```bash
 sudo docker build -t tandem-coding-challenge .
