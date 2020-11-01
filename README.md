@@ -1,4 +1,4 @@
-# tandem-codding-challenge using node 12.18.3 
+# tandem-coding-challenge using node 12.18.3 
  node > 14 seems to give generic error for padLevels.
  
 Trivia night at the local apprenticeship application (Tandem)
@@ -9,12 +9,29 @@ If you have docker, you can run the dockerscript.sh to launch the application
 
 # For a node environment :
 
-npm run setup | to install node packages ( should only be prompt and the 6 dependencies )
+if you dont have node version 12.18.3 you can switch to that version using nvm (node version manager)
 
-npm start  | start the trivia game
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+source ~/.bashrc
+```
+after that you should be able to see the nvm version with
+```nvm --version```
+Then you can install the node version with:
+```nvm install 12.18.3```
+And in doing so it should switch the current version of node to 12.18.3
+
+```bash 
+npm run setup
+```
+to install node packages ( npm i )
+
+```bash
+npm start
+``` 
+start the trivia game ( node . )
 
 # For a docker environment 
-pull my container from docker hub
-```docker pull saolivei/tandem-coding-challenge:1.0```
-run my docker image interactively 
-```docker run -it --rm saolivei/tandem-coding-challenge:1.0```
+
+Run dockerscript.sh
