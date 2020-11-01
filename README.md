@@ -1,4 +1,4 @@
-# tandem-codding-challenge using node 12.18.3 
+# tandem-coding-challenge using node 12.18.3 
  node > 14 seems to give generic error for padLevels.
  
 Trivia night at the local apprenticeship application (Tandem)
