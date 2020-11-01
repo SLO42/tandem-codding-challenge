@@ -1,8 +1,8 @@
 # tandem-coding-challenge using node 12.18.3 
  node > 14 seems to give generic error for padLevels.
- and node < 12 seems to get upset at functions like
+ and node < 12 seems to get upset at functions like:
  ```javascript
-  getResults
+  getResults = () => {...};
  ```
  
 Trivia night at the local apprenticeship application (Tandem)
